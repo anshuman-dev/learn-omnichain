@@ -16,7 +16,7 @@ export const useAppStore = create<AppState>()(
       completedPages: [],
       setCurrentPage: (page) => set({ currentPage: page }),
       markPageComplete: (page) => set((state) => ({
-        completedPages: [...state.completedPages, page]
+        completedPages: [...state.completedPages.filter(p => p !== page), page]
       })),
       resetProgress: () => set({ currentPage: 'void', completedPages: [] })
     }),
